@@ -1,7 +1,6 @@
 //https://api.preguntados.com/api/users/98652206/games/4459430805?_=4459430805
 import java.awt.Color;
 import java.awt.FlowLayout;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
