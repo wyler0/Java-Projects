@@ -3,11 +3,12 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.net.Socket;
 import javax.swing.*;
+import javax.websocket.*;
 
-public class jasper {
-	
+public class jasper{
+
 	JTextField gameIDField = new JTextField("Game ID");
 	JTextField nickField = new JTextField("Nickname");
 	JTextArea status = new JTextArea();
@@ -15,11 +16,11 @@ public class jasper {
 	JComboBox<String> commandChooser = new JComboBox<String>(commands);
 	JButton goButton = new JButton("GO");
 	String gameID;
-	
+
 	public jasper(){
 		initJFrame();
 	}
-	
+
 	private void initJFrame(){
 		JFrame frame = new JFrame();
 		frame.setLayout(new FlowLayout());
@@ -37,7 +38,7 @@ public class jasper {
 
 		commandChooser.setPreferredSize(new Dimension(frame.getWidth()-30, 30));
 		frame.getContentPane().add(commandChooser);
-		
+
 		goButton.setPreferredSize(new Dimension(frame.getWidth()-30, 30));
 		frame.getContentPane().add(goButton);
 		goButton.addActionListener(new ActionListener() {
@@ -51,22 +52,36 @@ public class jasper {
 				}
 			}          
 		});
-		
+
 		frame.getContentPane().add(new JLabel("       Made By Wyler Zahm       "));
-		
+
 		status.setPreferredSize(new Dimension(frame.getWidth()-20,200));
 		frame.getContentPane().add(status);
 	}
-	
+
 	private void verifyInputID(){
 		String prev = gameIDField.getText();
 		gameIDField.setText(prev.replaceAll("[^\\d.]", ""));
-		if(prev!= gameIDField.getText()){
-			status.setText(status.getText()+"Removed Letters from Game ID\n");
+		if(gameIDField.getText().equals("") || gameIDField.getText().equals("Game ID")){
+			printo("No Game ID!");	
 		}
 	}
-	
+
+	private void printo(String t){
+		status.setText(status.getText()+t+"\n");
+	}
+
 	private void exec(String gameID, String nick, int hack){
-		
+		String time="44511430805";
+		String url = "https://kahoot.it/reserve/test/" +gameID + "/?" + time + "";
+
+
+		try {
+			
+		} 
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
